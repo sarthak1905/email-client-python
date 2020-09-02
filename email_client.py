@@ -15,9 +15,9 @@ def main():
     password = str(input("Enter your password:"))
     receiver_email = str(input("Enter the receiver email address:"))
 
-    subject = str(input("Enter the subject:\n"))
+    subject = 'Subject:' + str(input("Enter the subject-"))
     subject += '\n\n'
-    print("Enter the body of the email(press enter twice when done):\n")
+    print("Enter the body of the email(press enter twice when done)-\n")
     lines = []
     while True:
         line = input()
