@@ -1,4 +1,5 @@
 import smtplib, ssl
+from getpass import getpass
 
 
 port = 465
@@ -12,11 +13,10 @@ def main():
     print(entry_message)
     
     sender_email = str(input("Enter your email address:"))
-    password = str(input("Enter your password:"))
+    password = getpass("Enter your password(will NOT appear as you type):")
     receiver_email = str(input("Enter the receiver email address:"))
 
-    subject = 'Subject:' + str(input("Enter the subject-"))
-    subject += '\n\n'
+    subject = str(input("Enter the subject-"))
     print("Enter the body of the email(press enter twice when done)-\n")
     lines = []
     while True:
@@ -26,7 +26,7 @@ def main():
         else:
             break
     body = '\n'.join(lines)
-    message = subject + body
+    message = f"Subject: {subject}\n\n{body}"
 
     context = ssl.create_default_context()
     
